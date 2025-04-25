@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>D&D Spell Picker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #1a1a2e, #0f0f1f);
+      color: #eee;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ffcc70;
+      text-shadow: 0 0 10px #ffcc70;
+    }
+
+    .card {
+      background-color: #222;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(255, 204, 112, 0.3);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+      color: #ffc107;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      background: #333;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      background-color: #ffcc70;
+      color: #111;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #ffcc70;
+    }
+
+    #result {
+      margin-top: 2rem;
+      background-color: #111;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: left;
+      color: #fff;
+    }
+
+    #result h2 {
+      color: #ffcc70;
+      margin-top: 0;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+    }
+
+    @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#result {
+  animation: fadeInUp 0.6s ease-in-out;
+}
+
+  </style>
+</head>
+<body>
+  <h1>D&D Spell Picker</h1>
+  <div class="card">
+    <div>
+      <label for="school">Select a school:</label>
+      <select id="school"></select>
+    </div>
+
+    <div>
+      <label for="level">Select spell level (0–9):</label>
+      <input type="number" id="level" min="0" max="9" value="0">
+    </div>
+
+    <div>
+      <label for="pick">Pick a spell number (1–12):</label>
+      <input type="number" id="pick" min="1" max="12" value="1">
+    </div>
+
+    <button onclick="pickSpell()">Show Spell</button>
+    <div id="result"></div>
+  </div>
+
+  <script type="module" src="filter.js"></script>
+</body>
+</html>
